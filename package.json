@@ -1,13 +1,18 @@
 {
   "name": "array",
   "version": "1.0.0",
-  "description": "Component operation array",
-  "keywords": [],
-  "homepage": "",
-  "author": "",
+  "description": "一套方便灵活的高可用的前端组合框架.Component operation array",
+  "keywords": ["array"],
+  "homepage": "http://www.dreamstu.com/",
+  "author": "Seven",
+  "authorInfo":[{
+    "name":"Seven",
+    "email":"cjxsgn@163.com",
+    "qq":"2499039555"
+   }],
   "repository": {
     "type": "git",
-    "url": "git://github.com/dreamstu/array.git"
+    "url": "http://github.com/dreamstu/array.git"
   },
   "bugs": {
     "url": ""
@@ -16,10 +21,10 @@
   "spm": {
     "main": "index.js",
     "dependencies": {
+      "basic":"1.0.0"
     },
     "devDependencies": {
-      "expect.js": "0.3.1",
-      "quickjs-base":"1.0.1"
+      "expect.js": "0.3.1"
     },
     "engines": {
       "seajs": "2.2.1"

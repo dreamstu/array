@@ -1,4 +1,4 @@
-    var base = require('quickjs-base');   
+    var base = require('basic');   
     var array = {};
 
     /**

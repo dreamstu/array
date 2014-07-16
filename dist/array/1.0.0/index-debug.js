@@ -1,4 +1,5 @@
-define("array/1.0.0/index-debug", [], function(require, exports, module) {
+define("array/1.0.0/index-debug", ["jquery/1.7.2/jquery-debug", "ua/1.0.0/index-debug", "jsons/1.0.0/index-debug", "basic/1.0.0/index-debug"], function(require, exports, module) {
+  var base = require("basic/1.0.0/index-debug");
   var array = {};
   /**
    * 正向查找数组元素在数组中的索引下标
@@ -310,7 +311,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
    * @return {Array} 返回转换后的数组
    */
   array.toArray = function(o) {
-    var type = Qs.$typeof(o);
+    var type = base.$typeof(o);
     return (type) ? ((type != 'array' && type != 'arguments') ? [o] : o) : [];
   };
   /**
@@ -321,7 +322,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
    * @return {Boolean} 找到并移除, 返回 true
    */
   array.remove = function(arr, members) {
-    var members = toArray(members),
+    var members = array.toArray(members),
       i,
       j,
       flag = false;
@@ -429,7 +430,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
    * @return {Boolean}
    */
   array.contains = function(arr, o) {
-    return (indexOf(arr, o) > -1);
+    return (array.indexOf(arr, o) > -1);
   };
   /**
    * 唯一化一个数组
@@ -440,7 +441,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
   array.uniquelize = function(arr) {
     var result = [];
     for (var i = 0, len = arr.length; i < len; i++) {
-      if (!contains(result, arr[i])) {
+      if (!array.contains(result, arr[i])) {
         result.push(arr[i]);
       }
     }
@@ -457,7 +458,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
   array.intersect = function(a, b) {
     var result = [];
     for (var i = 0, len = a.length; i < len; i++) {
-      if (contains(b, a[i])) {
+      if (array.contains(b, a[i])) {
         result.push(a[i]);
       }
     }
@@ -474,7 +475,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
   array.minus = function(a, b) {
     var result = [];
     for (var i = 0, len = a.length; i < len; i++) {
-      if (!contains(b, a[i])) {
+      if (!array.contains(b, a[i])) {
         result.push(a[i]);
       }
     }
@@ -489,7 +490,7 @@ define("array/1.0.0/index-debug", [], function(require, exports, module) {
    * @return {Array} a U b
    */
   array.union = function(a, b) {
-    return uniquelize(a.concat(b));
+    return array.uniquelize(a.concat(b));
   };
   module.exports = array;
 });
